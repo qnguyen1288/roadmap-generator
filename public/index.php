@@ -1,9 +1,17 @@
 <html>
 <body>
-
 <form action="roadmapgen.php" method="get">
-Name: <input type="text" name="name"><br>
 
+<head>
+<style>
+.center {
+  text-align: center;
+}
+</style>
+</head>
+
+<div class="center">
+Name: <input type="text" name="name"><br>
 <head></head>  
 <title>Static Dropdown List</title>  
 Lộ trình: 
@@ -45,6 +53,22 @@ Mục tiêu:
 </body>  
 <input type="submit">
 </form>
+
+</div>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+img {
+  width: 100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+    <img src="Reference.png">
+</body>
 
 </body>
 </html>
