@@ -190,17 +190,22 @@ if ($loc == "1") {
     $textX = $textX > $width - $mtieu_width -10 ? $width - $mtieu_width -10 : $textX;
     imagettftext($img, 35, 0, $textX, 1320,$black, $font, $mtieu);
     unset($textX);
-    if ($Batdau < "13" && ($Goal - 13) > 2 && (13-$Batdau)>1) {
-        imagecopyresampled($img,$barrow,285 + 145*12,1030,0,0,49,225,49,225);
-        $textX = ceil(285 + 144*12 - $hta1_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1320,$black, $font, $hta2);
-        unset($textX);
-        $textX = ceil(285 + 144*12 - $hta1x_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1320,$black, $font, $hta2x);
-        unset($textX);
-        imagecopyresampled($img,$parrow,285 + 145*12 + 50,1090,0,0,144*($Goal - 13) - 50,26,443,26);
+    if ($Batdau < "13" && (13-$Batdau)>1) {
+        if (($Goal - 13) > 2) {
+            imagecopyresampled($img,$barrow,285 + 145*12,1030,0,0,49,225,49,225);
+            $textX = ceil(285 + 144*12 - $hta1_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1320,$black, $font, $hta2);
+            unset($textX);
+            $textX = ceil(285 + 144*12 - $hta1x_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1375,$black, $font, $hta2x);
+            unset($textX);
+            imagecopyresampled($img,$parrow,285 + 145*12 + 50,1090,0,0,144*($Goal - 13) - 50,26,443,26);
+            $anchor = 13;
+        } else {
+            $anchor = $Goal;
+        }
         if ($Batdau < "7" && (7-$Batdau)>1) {
             imagecopyresampled($img,$barrow,285 + 144*6,1030,0,0,49,225,49,225);
             $textX = ceil(285 + 144*6 - $hta1_width/2  +25);
@@ -211,10 +216,10 @@ if ($loc == "1") {
             $textX = $textX <0 ? 0 : $textX;
             imagettftext($img, 35, 0, $textX, 1375,$black, $font, $hta1x);
             unset($textX);
-            imagecopyresampled($img,$parrow,285 + 144*6 + 50,1090,0,0,144*(13-7) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,285 + 144*6 + 50,1090,0,0,144*($anchor-7) - 50,26,443,26);
             imagecopyresampled($img,$parrow,285 + 144*($Batdau-1) + 50,1090,0,0,144*(7-$Batdau) - 50,26,443,26);
         } else {
-            imagecopyresampled($img,$parrow,285 + 144*($Batdau-1) + 50,1090,0,0,144*(13-$Batdau) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,285 + 144*($Batdau-1) + 50,1090,0,0,144*($anchor-$Batdau) - 50,26,443,26);
         }
     } else {
         imagecopyresampled($img,$parrow,285 + 144*($Batdau-1) + 50,1090,0,0,144*($Goal-$Batdau) - 50,26,443,26);
@@ -234,17 +239,22 @@ if ($loc == "1") {
     $textX = $textX > $width - $mtieu_width -10 ? $width - $mtieu_width -10 : $textX;
     imagettftext($img, 35, 0, $textX, 1320,$black, $font, $mtieu);
     unset($textX);
-    if ($Batdau < "19" && ($Goal - 19) > 2 && (19-$Batdau)>1) {
-        imagecopyresampled($img,$barrow,230 + 111*18,1030,0,0,49,225,49,225);
-        $textX = ceil(230 + 111*18 - $hta1_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htb1);
-        unset($textX);
-        $textX = ceil(230 + 111*18 - $hta1x_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb1x);
-        unset($textX);
-        imagecopyresampled($img,$parrow,230 + 111*18 + 50,1090,0,0,110*($Goal - 19) - 60,26,443,26);
+    if ($Batdau < "19" && (19-$Batdau)>1) {
+        if (($Goal-19) > 2) {
+            imagecopyresampled($img,$barrow,230 + 111*18,1030,0,0,49,225,49,225);
+            $textX = ceil(230 + 111*18 - $hta1_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htb1);
+            unset($textX);
+            $textX = ceil(230 + 111*18 - $hta1x_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb1x);
+            unset($textX);
+            imagecopyresampled($img,$parrow,230 + 111*18 + 50,1090,0,0,110*($Goal - 19) - 60,26,443,26);
+            $anchor = 19;
+        } else {
+            $anchor = $Goal;
+        }
         if ($Batdau < "13" && (13-$Batdau)>1) {
             imagecopyresampled($img,$barrow,230 + 111*12,1030,0,0,49,225,49,225);
             $textX = ceil(230 + 111*12 - $hta1_width/2  +25);
@@ -255,10 +265,10 @@ if ($loc == "1") {
             $textX = $textX <0 ? 0 : $textX;
             imagettftext($img, 35, 0, $textX, 1375,$black, $font, $hta2x);
             unset($textX);
-            imagecopyresampled($img,$parrow,230 + 111*12 + 50,1090,0,0,111*(19-13) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,230 + 111*12 + 50,1090,0,0,111*($anchor-13) - 50,26,443,26);
             imagecopyresampled($img,$parrow,230 + 111*($Batdau-1) + 50,1090,0,0,111*(13-$Batdau) - 50,26,443,26);
         } else {
-            imagecopyresampled($img,$parrow,230 + 111*($Batdau-1) + 50,1090,0,0,111*(19-$Batdau) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,230 + 111*($Batdau-1) + 50,1090,0,0,111*($anchor-$Batdau) - 50,26,443,26);
         }
     } else {
         imagecopyresampled($img,$parrow,230 + 111*($Batdau-1) + 50,1090,0,0,111*($Goal-$Batdau) - 50,26,443,26);
@@ -278,17 +288,23 @@ if ($loc == "1") {
     $textX = $textX > $width - $mtieu_width -10 ? $width - $mtieu_width -10 : $textX;
     imagettftext($img, 35, 0, $textX, 1320,$black, $font, $mtieu);
     unset($textX);
-    if ($Batdau < "25" && ($Goal - 25) > 2 && (25-$Batdau)>1) {
-        imagecopyresampled($img,$barrow,190 + 84*24,1030,0,0,49,225,49,225);
-        $textX = ceil(190 + 84*24 - $hta1_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htb2);
-        unset($textX);
-        $textX = ceil(190 + 84*24 - $hta1x_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb2x);
-        unset($textX);
-        imagecopyresampled($img,$parrow,190 + 84*24 + 50,1090,0,0,84*($Goal - 24) - 120,26,443,26);
+    if ($Batdau < "25" && (25-$Batdau)>1) {
+        if (($Goal - 25) > 2) {
+            imagecopyresampled($img,$barrow,190 + 84*24,1030,0,0,49,225,49,225);
+            $textX = ceil(190 + 84*24 - $hta1_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htb2);
+            unset($textX);
+            $textX = ceil(190 + 84*24 - $hta1x_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb2x);
+            unset($textX);
+            imagecopyresampled($img,$parrow,190 + 84*24 + 50,1090,0,0,84*($Goal - 24) - 120,26,443,26);
+            $anchor = 25;
+        } else {
+            $anchor = $Goal;
+        }
+        
         if ($Batdau < "13" && (13-$Batdau)>1) {
             imagecopyresampled($img,$barrow,190 + 84*12,1030,0,0,49,225,49,225);
             $textX = ceil(190 + 84*12 - $hta1_width/2  +25);
@@ -299,10 +315,10 @@ if ($loc == "1") {
             $textX = $textX <0 ? 0 : $textX;
             imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb1x);
             unset($textX);
-            imagecopyresampled($img,$parrow,190 + 84*12 + 50,1090,0,0,84*(25 - 13) - 60,26,443,26);
+            imagecopyresampled($img,$parrow,190 + 84*12 + 50,1090,0,0,84*($anchor - 13) - 60,26,443,26);
             imagecopyresampled($img,$parrow,190 + 84*($Batdau-1) + 50,1090,0,0,84*(13-$Batdau) - 50,26,443,26);
         } else {
-            imagecopyresampled($img,$parrow,190 + 84*($Batdau-1) + 50,1090,0,0,84*(25-$Batdau) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,190 + 84*($Batdau-1) + 50,1090,0,0,84*($anchor-$Batdau) - 50,26,443,26);
         } 
     } else {
         imagecopyresampled($img,$parrow,190 + 84*($Batdau-1) + 50,1090,0,0,84*($Goal-$Batdau) - 50,26,443,26);
@@ -322,13 +338,18 @@ if ($loc == "1") {
     $textX = $textX > $width - $mtieu_width -10 ? $width - $mtieu_width -10 : $textX;
     imagettftext($img, 35, 0, $textX, 1320,$black, $font, $mtieu);
     unset($textX);
-    if ($Batdau < "33" && ($Goal - 33) > 2 && (33-$Batdau)>1) {
-        imagecopyresampled($img,$barrow,170 + 75*32,1030,0,0,49,225,49,225);
-        $textX = ceil(170 + 75*32 - $htc1_width/2  +25);
-        $textX = $textX <0 ? 0 : $textX;
-        imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htc1);
-        unset($textX);
-        imagecopyresampled($img,$parrow,170 + 75*32 + 50,1090,0,0,75*($Goal - 32) - 120,26,443,26);
+    if ($Batdau < "33" && (33-$Batdau)>1) {
+        if (($Goal - 33) > 2) {
+            imagecopyresampled($img,$barrow,170 + 75*32,1030,0,0,49,225,49,225);
+            $textX = ceil(170 + 75*32 - $htc1_width/2  +25);
+            $textX = $textX <0 ? 0 : $textX;
+            imagettftext($img, 35, 0, $textX, 1320,$black, $font, $htc1);
+            unset($textX);
+            imagecopyresampled($img,$parrow,170 + 75*32 + 50,1090,0,0,75*($Goal - 32) - 120,26,443,26);
+            $anchor = 33;
+        } else {
+            $anchor = $Goal;
+        }
         if ($Batdau < "25" && (25-$Batdau)>1) {
             imagecopyresampled($img,$barrow,170 + 75*24,1030,0,0,49,225,49,225);
             $textX = ceil(170 + 75*24 - $hta1_width/2  +25);
@@ -339,7 +360,7 @@ if ($loc == "1") {
             $textX = $textX <0 ? 0 : $textX;
             imagettftext($img, 35, 0, $textX, 1375,$black, $font, $htb2x);
             unset($textX);
-            imagecopyresampled($img,$parrow,170 + 75*24 + 50,1090,0,0,75*(32 - 24) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,170 + 75*24 + 50,1090,0,0,75*($anchor - 25) - 50,26,443,26);
             if ($Batdau < "13" && (13-$Batdau)>1) {
                 imagecopyresampled($img,$barrow,170 + 75*12,1030,0,0,49,225,49,225);
                 $textX = ceil(170 + 75*12 - $hta1_width/2  +25);
@@ -356,7 +377,7 @@ if ($loc == "1") {
                 imagecopyresampled($img,$parrow,170 + 75*($Batdau-1) + 50,1090,0,0,75*(25-$Batdau) - 50,26,443,26);
             } 
         } else {
-            imagecopyresampled($img,$parrow,170 + 75*($Batdau-1) + 50,1090,0,0,75*(33-$Batdau) - 50,26,443,26);
+            imagecopyresampled($img,$parrow,170 + 75*($Batdau-1) + 50,1090,0,0,75*($anchor-$Batdau) - 50,26,443,26);
         }
     } else {
         imagecopyresampled($img,$parrow,170 + 75*($Batdau-1) + 50,1090,0,0,75*($Goal-$Batdau) - 50,26,443,26);
