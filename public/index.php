@@ -17,8 +17,10 @@ Name: <input type="text" name="name"><br>
 Lộ trình: 
 <select name="roadmap">  
   <option value="Select">Select</option>}  
-  <option value="Oxford Discover Futures">Oxford Discover Futures</option>  
-  <option value="Business Resutls">Business Resutls</option>  
+  <option value="Oxford Discover">Oxford Discover (Lớp 1 - 5)</option>  
+  <option value="Oxford Discover Futures">Oxford Discover Futures (Lớp 5 -11)</option>  
+  <option value="English File">English File (học sinh cấp 3, thi đại học, sinh viên, người đi làm)</option>  
+  <option value="Business Resutl">Business Resutl (Doanh nhân)</option>  
 </select>   
 </body>
 <br>
