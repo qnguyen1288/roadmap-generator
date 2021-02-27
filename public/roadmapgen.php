@@ -105,7 +105,7 @@ if ($roadmap =="Oxford Discover") {
     $ttimec1 = 18;
     $ttimec1x = 24;
     $ttimec2 = 24;
-} elseif ($roadmap=="Business Resutl") {
+} elseif ($roadmap=="Business Result") {
     $ttime = "4";
     $ttimea1 = 6;
     $ttimea1x = 7;
@@ -328,14 +328,14 @@ for($i=0; $i <= (count($output_array)-1); $i++) {
             } else {
                 $timetext = $apps . round($tgian1[$i]/12,1) . " - " . round($tgian2[$i]/12,1) . " " . $yr;
             }
-            $timetext_size = imagettfbbox(35,0, $font, $timetext);
+            $timetext_size = imagettfbbox(30,0, $font, $timetext);
             $timetext_width = max([$timetext_size[2], $timetext_size[4]]) - min([$timetext_size[0], $timetext_size[6]]);
-            imagettftext($img, 35,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1175, $pink, $font, $timetext);
+            imagettftext($img, 30,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
         } else {
             $timetext = $apps . round($tgian1[$i]) . " - " . round($tgian2[$i]) . " " . $mth;
-            $timetext_size = imagettfbbox(35,0, $font, $timetext);
+            $timetext_size = imagettfbbox(30,0, $font, $timetext);
             $timetext_width = max([$timetext_size[2], $timetext_size[4]]) - min([$timetext_size[0], $timetext_size[6]]);
-            imagettftext($img, 35,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1175, $pink, $font, $timetext);
+            imagettftext($img, 30,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
         }
     } 
 }
