@@ -161,31 +161,31 @@ imagettftext($img, 120, 0, $centerX, 200, $black, $font, $Name);
 
 // THE TEXT SIZE
 $roadmap = "Lộ trình Tiếng anh (" . $roadmap .")";
-$rm_size = imagettfbbox(80, 0, $font, $roadmap);
-$rm_width = get_width(80,0,$font,$roadmap);
+$rm_size = imagettfbbox(60, 0, $font, $roadmap);
+$rm_width = get_width(60,0,$font,$roadmap);
 
 // CENTERING THE TEXT BLOCK
 $rmcenterX = CEIL(($width - $rm_width) / 2);
 $rmcenterX = $rmcenterX<0 ? 0 : $rmcenterX;
 //$rmcenterY = CEIL(($height - $rm_height) / 2);
 //$rmcenterY = $rmcenterY<0 ? 0 : $rmcenterY;
-imagettftext($img, 80, 0, $rmcenterX, 320, $black, $font, $roadmap);
+imagettftext($img, 60, 0, $rmcenterX, 320, $black, $font, $roadmap);
 
 // add arrow
 
-$name1_width = get_width(35, 0, $font, $Name);
+$name1_width = get_width(28, 0, $font, $Name);
 
 $hientai = "hiện tại";
-$hientai_width = get_width(35, 0, $font, $hientai);
+$hientai_width = get_width(28, 0, $font, $hientai);
 
 $mtieu = "Mục tiêu";
-$mtieu_width = get_width(35, 0, $font, $mtieu);
+$mtieu_width = get_width(28, 0, $font, $mtieu);
 
 $hta1 = "Hoàn thành A1,";
-$hta1_width = get_width(35,0, $font, $hta1);
+$hta1_width = get_width(28,0, $font, $hta1);
 
 $hta1x = "lên A2";
-$hta1x_width = get_width(35,0, $font, $hta1x);
+$hta1x_width = get_width(28,0, $font, $hta1x);
 
 $hta2 = "Hoàn thành A2,";
 $htb1 = "Hoàn thành B1,";
@@ -196,28 +196,28 @@ $htb2x = "lên C1";
 $htc1 = "7.5IELTS";
 $htc1x = "8.0IELTS";
 $htc1xy = " ";
-$htc1_width = get_width(35,0, $font, $htc1);
+$htc1_width = get_width(28,0, $font, $htc1);
 
 $text1array = array($hta1,$hta2,$htb1,$htb2,$htc1x);
-$text2array = array($hta1x,$hta2x,$htb1x,$htb2x,$htc1xy);
+$line1array = array($hta1x,$hta2x,$htb1x,$htb2x,$htc1xy);
 
 // Tao array bao gom cac diem can ve arrow
 $input_array = array(7,13,19,25,33);
 $output_array = array($Batdau);
 $writetext1 = array($Name);
-$writetext2 = array($hientai);
+$writeline1 = array($hientai);
 
 for($i=0;$i < (count($input_array));$i++){
     if($input_array[$i] > $Batdau && $input_array[$i] < $Goal && ($input_array[$i]-$Batdau)>1 && ($Goal -$input_array[$i])>2) {
         $output_array[] = $input_array[$i];
         $writetext1[] = $text1array[$i];
-        $writetext2[] = $text2array[$i];
+        $writeline1[] = $line1array[$i];
     }
 }
 
 $output_array[] = $Goal;
 $writetext1[] = $mtieu;
-$writetext2[] = $htc1xy;
+$writeline1[] = $htc1xy;
 
 //tao array de tinh khoang cach
 $output_array2 = array($Batdau);
@@ -306,18 +306,18 @@ ob_clean();
 for($i=0; $i <= (count($output_array)-1); $i++) {
     $itemarrow = $output_array[$i];
     $textarrow1 = $writetext1[$i];
-    $textarrow2 = $writetext2[$i];
+    $textarrow2 = $writeline1[$i];
     imagecopyresampled($img,$barrow,$start + $gap*($itemarrow-1),1030,0,0,49,225,49,225); // tao arrow tai diem output thu $i
-    $textarrow1_width = get_width(35,0,$font,$textarrow1);
+    $textarrow1_width = get_width(28,0,$font,$textarrow1);
     $textX = ceil($start + $gap*($itemarrow-1) - $textarrow1_width/2 +25);
     $textX = $textX <0 ? 0 : $textX;
     $textX = ($textX+$textarrow1_width)>2932 ? (2932 - $textarrow1_width - 15) : $textX;
-    imagettftext($img, 35, 0, $textX, 1320,$black, $font, $textarrow1); // dien text 1
+    imagettftext($img, 28, 0, $textX, 1320,$black, $font, $textarrow1); // dien text 1
     unset($textX);
-    $textarrow2_width = get_width(35,0,$font,$textarrow2);
+    $textarrow2_width = get_width(28,0,$font,$textarrow2);
     $textX = ceil($start + $gap*($itemarrow-1) - $textarrow2_width/2 +25);
     $textX = $textX <0 ? 0 : $textX;
-    imagettftext($img, 35, 0, $textX, 1375,$black, $font, $textarrow2); // dien text 2
+    imagettftext($img, 28, 0, $textX, 1375,$black, $font, $textarrow2); // dien text 2
     unset($textX);
     if($i != (count($output_array)-1)) {
         imagecopyresampled($img,$parrow,$start + $gap*($itemarrow-1) + 50,1090,0,0,$gap*($output_array[$i+1]-$itemarrow) - 50,26,443,26); // ve pink arrow den diem tiep theo
@@ -328,17 +328,46 @@ for($i=0; $i <= (count($output_array)-1); $i++) {
             } else {
                 $timetext = $apps . round($tgian1[$i]/12,1) . " - " . round($tgian2[$i]/12,1) . " " . $yr;
             }
-            $timetext_size = imagettfbbox(30,0, $font, $timetext);
+            $timetext_size = imagettfbbox(28,0, $font, $timetext);
             $timetext_width = max([$timetext_size[2], $timetext_size[4]]) - min([$timetext_size[0], $timetext_size[6]]);
-            imagettftext($img, 30,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
+            imagettftext($img, 28,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
         } else {
             $timetext = $apps . round($tgian1[$i]) . " - " . round($tgian2[$i]) . " " . $mth;
-            $timetext_size = imagettfbbox(30,0, $font, $timetext);
+            $timetext_size = imagettfbbox(28,0, $font, $timetext);
             $timetext_width = max([$timetext_size[2], $timetext_size[4]]) - min([$timetext_size[0], $timetext_size[6]]);
-            imagettftext($img, 30,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
+            imagettftext($img, 28,0, $start + $gap*(($output_array[$i+1]+$itemarrow-2)/2) - ($timetext_width/2) +25, 1165, $pink, $font, $timetext);
         }
     } 
 }
+
+// dien cau cuoi
+$line1 = $Name . " có thể lên trình độ nhanh hơn rất nhiều nếu kết hợp việc học tại 2204";
+$line1_width = get_width(35,0,$font,$line1);
+$line1x = $Name . " có thể lên trình độ nhanh hơn rất nhiều";
+if ($ttime == 1 || $ttime == 2) {
+    $line2 = "với tự rèn luyện tại nhà theo hướng dẫn và học Tiếng Anh trên trường lớp.";
+
+} else {
+    $line2 = "với tự rèn luyện tại nhà theo hướng dẫn.";
+}
+
+$line2_width = get_width(35,0,$font,$line2);
+
+// CENTERING THE TEXT BLOCK
+$centerX = CEIL(($width - $line1_width) / 2);
+$centerX = $centerX<0 ? 0 : $centerX;
+imagettftext($img, 35, 0, $centerX, 1500, $black, $font, $line1);
+imagettftext($img, 35, 0, $centerX, 1500+1, $pink, $font, $line1x);
+imagettftext($img, 35, 0, $centerX, 1500+2, $pink, $font, $line1x);
+imagettftext($img, 35, 0, $centerX+1, 1500, $pink, $font, $line1x);
+imagettftext($img, 35, 0, $centerX+2, 1500, $pink, $font, $line1x);
+
+$centerX = CEIL(($width - $line2_width) / 2);
+$centerX = $centerX<0 ? 0 : $centerX;
+imagettftext($img, 35, 0, $centerX, 1550, $black, $font, $line2);
+
+
+
 
 end:
 // show image
