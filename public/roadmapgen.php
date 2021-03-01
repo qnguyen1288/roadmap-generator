@@ -4,6 +4,7 @@
 <?php
 
 $Name = $_GET["name"];
+$name2 = substr($Name,0,strpos($Name,"(")-1);
 $roadmap =  $_GET["roadmap"];
 $A1 =  $_GET["a1"];
 $A2 =  $_GET["a2"];
@@ -173,7 +174,7 @@ imagettftext($img, 60, 0, $rmcenterX, 320, $black, $font, $roadmap);
 
 // add arrow
 
-$name1_width = get_width(28, 0, $font, $Name);
+$name1_width = get_width(28, 0, $font, $name2);
 
 $hientai = "hiện tại";
 $hientai_width = get_width(28, 0, $font, $hientai);
@@ -204,7 +205,7 @@ $line1array = array($hta1x,$hta2x,$htb1x,$htb2x,$htc1xy);
 // Tao array bao gom cac diem can ve arrow
 $input_array = array(7,13,19,25,33);
 $output_array = array($Batdau);
-$writetext1 = array($Name);
+$writetext1 = array($name2);
 $writeline1 = array($hientai);
 
 for($i=0;$i < (count($input_array));$i++){
@@ -341,9 +342,9 @@ for($i=0; $i <= (count($output_array)-1); $i++) {
 }
 
 // dien cau cuoi
-$line1 = $Name . " có thể lên trình độ nhanh hơn rất nhiều nếu kết hợp việc học tại 2204";
+$line1 = $name2 . " có thể lên trình độ nhanh hơn rất nhiều nếu kết hợp việc học tại 2204";
 $line1_width = get_width(35,0,$font,$line1);
-$line1x = $Name . " có thể lên trình độ nhanh hơn rất nhiều";
+$line1x = $name2 . " có thể lên trình độ nhanh hơn rất nhiều";
 if ($ttime == 1 || $ttime == 2) {
     $line2 = "với tự rèn luyện tại nhà theo hướng dẫn và học Tiếng Anh trên trường lớp.";
 
