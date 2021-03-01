@@ -357,10 +357,7 @@ $line2_width = get_width(35,0,$font,$line2);
 $centerX = CEIL(($width - $line1_width) / 2);
 $centerX = $centerX<0 ? 0 : $centerX;
 imagettftext($img, 35, 0, $centerX, 1500, $black, $font, $line1);
-imagettftext($img, 35, 0, $centerX, 1500+1, $pink, $font, $line1x);
-imagettftext($img, 35, 0, $centerX, 1500+2, $pink, $font, $line1x);
-imagettftext($img, 35, 0, $centerX+1, 1500, $pink, $font, $line1x);
-imagettftext($img, 35, 0, $centerX+2, 1500, $pink, $font, $line1x);
+imagettftext($img, 35, 0, $centerX, 1500, $pink, $font, $line1x);
 
 $centerX = CEIL(($width - $line2_width) / 2);
 $centerX = $centerX<0 ? 0 : $centerX;
