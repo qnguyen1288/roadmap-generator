@@ -4,7 +4,7 @@
 <?php
 
 $Name = $_GET["name"];
-if is_numeric(strpos($Name,"(")) {
+if (is_numeric(strpos($Name,"("))) {
     $name2 = substr($Name,0,strpos($Name,"(")-1);
 } else {
     $name2 = $Name;
