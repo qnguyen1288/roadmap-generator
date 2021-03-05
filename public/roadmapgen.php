@@ -4,7 +4,11 @@
 <?php
 
 $Name = $_GET["name"];
-$name2 = substr($Name,0,strpos($Name,"(")-1);
+if is_numeric(strpos($Name,"(")) {
+    $name2 = substr($Name,0,strpos($Name,"(")-1);
+} else {
+    $name2 = $Name;
+}
 $roadmap =  $_GET["roadmap"];
 $A1 =  $_GET["a1"];
 $A2 =  $_GET["a2"];
