@@ -8,7 +8,7 @@
 <form action="roadmapgen.php" method="get">
 <script>
 $(function() {
-    $('#row_mark1,#row_mark2').hide(); 
+    $('#row_mark2').hide(); 
     $('#type').change(function(){
         if($('#type').val() == 'ntest') {
             $('#row_mark1').show();
