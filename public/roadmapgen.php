@@ -216,7 +216,7 @@ $writetext1 = array($name2);
 $writeline1 = array($hientai);
 
 for($i=0;$i < (count($input_array));$i++){
-    if($input_array[$i] > $Batdau && $input_array[$i] < $Goal && ($input_array[$i]-$Batdau)>1 && ($Goal -$input_array[$i])>2) {
+    if($input_array[$i] > $Batdau && $input_array[$i] < $Goal && ($input_array[$i]-$Batdau)>2 && ($Goal -$input_array[$i])>2) {
         $output_array[] = $input_array[$i];
         $writetext1[] = $text1array[$i];
         $writeline1[] = $line1array[$i];
@@ -275,7 +275,7 @@ $tgian2 = array_map(function($x, $y) {
 
 $countkc = count($khoangcach);
 
-if(($khoangcach[0])==1) {
+if(($khoangcach[0])==1||$khoangcach[0]==2) {
     $first_element1 = $tgian1[0]+$tgian1[1];
     unset($tgian1[0]);
     unset($tgian1[1]);
